@@ -18,8 +18,11 @@ public class LikeBase64 {
 	}
 
 	/**
+	 * 编码
+	 * 
 	 * @param src
-	 * @return
+	 *            待编码的字符串
+	 * @return 编码后的字符串
 	 */
 	public static final String encode(String src) {
 		byte[] bs = null;
@@ -66,8 +69,11 @@ public class LikeBase64 {
 	}
 
 	/**
+	 * 解码
+	 * 
 	 * @param src
-	 * @return
+	 *            待解码的字符串
+	 * @return 解码后的字符串
 	 */
 	public static final String decode(String src) {
 		try {

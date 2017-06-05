@@ -44,7 +44,9 @@ public class HttpUtil {
 	 * 下载文件
 	 * 
 	 * @param request
+	 *            request
 	 * @param response
+	 *            response
 	 * @param fileName
 	 *            下载的文件名
 	 * @param downLoadPath
@@ -129,8 +131,11 @@ public class HttpUtil {
 	 * 设置cookie
 	 * 
 	 * @param response
+	 *            response
 	 * @param name
+	 *            cookie的名称
 	 * @param value
+	 *            cookie的值
 	 * @param maxAge
 	 *            生命周期,单位是秒
 	 */
@@ -145,9 +150,12 @@ public class HttpUtil {
 
 	/**
 	 * 获取cookie
+	 * 
 	 * @param request
+	 *            request
 	 * @param name
-	 * @return
+	 *            cookie的名称
+	 * @return cookie对象(可能为null)
 	 */
 	public static Cookie getCookieByName(HttpServletRequest request, String name) {
 		Cookie[] cookies = request.getCookies();
@@ -165,7 +173,8 @@ public class HttpUtil {
 	 * 将cookie封装到Map里面
 	 * 
 	 * @param request
-	 * @return
+	 *            request
+	 * @return cookie集合
 	 */
 	public static Map<String, Cookie> getCookieMap(HttpServletRequest request) {
 		Map<String, Cookie> cookieMap = new HashMap<String, Cookie>();

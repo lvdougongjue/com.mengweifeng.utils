@@ -19,6 +19,7 @@ import com.mengweifeng.util.TimerTask.Type;
 
 /**
  * 默认是daemon的
+ * 
  * @author ASME
  * 
  *         2011-7-25
@@ -92,23 +93,25 @@ public class HashWheelTimer implements Timer {
 
 		/**
 		 * 使用计时任务构造HashWheelTimerFuture
+		 * 
 		 * @param task
 		 */
 		private HashWheelTimerFuture(TimerTask task) {
 			this.task = task;
 		}
 
-		/** 
+		/**
 		 * (non-Javadoc)
 		 *
 		 * @see com.asme.adserver.util.TimerFuture#cancel()
 		 */
 		public void cancel() {
-			if (cancelled || isExpired()) return;
+			if (cancelled || isExpired())
+				return;
 			cancelled = true;
 		}
 
-		/** 
+		/**
 		 * (non-Javadoc)
 		 *
 		 * @see com.asme.adserver.util.TimerFuture#getTimerTask()
@@ -117,7 +120,7 @@ public class HashWheelTimer implements Timer {
 			return task;
 		}
 
-		/** 
+		/**
 		 * (non-Javadoc)
 		 *
 		 * @see com.asme.adserver.util.TimerFuture#isCancelled()
@@ -134,7 +137,8 @@ public class HashWheelTimer implements Timer {
 		public boolean isExpired() {
 
 			// interval类型的任务到期的标志为取消了
-			if (task.type() == Type.INTERVAL) return cancelled;
+			if (task.type() == Type.INTERVAL)
+				return cancelled;
 			return cancelled || System.currentTimeMillis() >= deadline;
 		}
 
@@ -146,15 +150,18 @@ public class HashWheelTimer implements Timer {
 	public HashWheelTimer() {
 		this(true);
 	}
+
 	public HashWheelTimer(boolean daemon) {
 		this(daemon, 20);
 	}
+
 	public HashWheelTimer(boolean daemon, int tick) {
 		this(daemon, tick, 1024);
 	}
 
 	/**
 	 * 使用tick, ticksPerWheel, es构造计时器
+	 * 
 	 * @param tick
 	 * @param ticksPerWheel
 	 */
@@ -170,7 +177,7 @@ public class HashWheelTimer implements Timer {
 			// 线程ID
 			private AtomicInteger threadId = new AtomicInteger();
 
-			/** 
+			/**
 			 * (non-Javadoc)
 			 *
 			 * @see java.util.concurrent.ThreadFactory#newThread(java.lang.Runnable)
@@ -191,7 +198,7 @@ public class HashWheelTimer implements Timer {
 		hashWheels = new HashSet[normalizedTicksPerWheel];
 
 		// 初始化Wheels
-		for(int i = 0; i < normalizedTicksPerWheel; i++) {
+		for (int i = 0; i < normalizedTicksPerWheel; i++) {
 			hashWheels[i] = new HashSet<HashWheelTimerFuture>();
 		}
 
@@ -241,7 +248,7 @@ public class HashWheelTimer implements Timer {
 			// 计时器启动了多久
 			long tickedTime = 0;
 
-			/** 
+			/**
 			 * (non-Javadoc)
 			 *
 			 * @see java.lang.Thread#run()
@@ -249,7 +256,8 @@ public class HashWheelTimer implements Timer {
 			public void run() {
 				startTime = System.currentTimeMillis();
 				try {
-					for (; !Thread.interrupted(); notifyExpiredTasks(tick()));
+					for (; !Thread.interrupted(); notifyExpiredTasks(tick()))
+						;
 				} catch (InterruptedException e) {
 					// nothing to do
 				}
@@ -273,6 +281,7 @@ public class HashWheelTimer implements Timer {
 
 			/**
 			 * 触发所有到期的计时任务
+			 * 
 			 * @param now
 			 */
 			private void notifyExpiredTasks(long now) {
@@ -284,18 +293,18 @@ public class HashWheelTimer implements Timer {
 				// 计算应该使用哪个锁
 				int lockIndex = wheelPointer & lockPointerMask;
 
-				try{
+				try {
 					wheelLocks[lockIndex].lock();
-					for(Iterator<HashWheelTimerFuture> it = wheel.iterator(); it.hasNext();) {
+					for (Iterator<HashWheelTimerFuture> it = wheel.iterator(); it.hasNext();) {
 						HashWheelTimerFuture future = it.next();
 
 						// 如果已经取消了,就删掉这个任务
-						if(future.cancelled) {
+						if (future.cancelled) {
 							it.remove();
 							continue;
 						}
 
-						if(future.remainingRounds > 0) {
+						if (future.remainingRounds > 0) {
 
 							// 还不是最后一圈
 							future.remainingRounds--;
@@ -303,19 +312,19 @@ public class HashWheelTimer implements Timer {
 
 							// 是最后一圈了
 							it.remove();
-							if(future.deadline <= now){
+							if (future.deadline <= now) {
 
 								TimerTask task = future.task;
 
 								// 时间到了,触发
-								if(task.isTriggerIndependently()) {
+								if (task.isTriggerIndependently()) {
 									es.submit(task);
 								} else {
 									taskQueue.offer(task);
 								}
 
 								// 如果是周期性任务, 重新放入计时器
-								if(task.type() == Type.INTERVAL) {
+								if (task.type() == Type.INTERVAL) {
 									scheduleTimerFuture(future);
 								}
 							} else {
@@ -338,13 +347,16 @@ public class HashWheelTimer implements Timer {
 
 	/**
 	 * 调度计时任务
+	 * 
 	 * @param future
 	 */
 	private void scheduleTimerFuture(HashWheelTimerFuture future) {
 
 		// 如果还没有启动,那么先启动
-		if (!execThread.isAlive()) execThread.start();
-		if (!timerThread.isAlive()) timerThread.start();
+		if (!execThread.isAlive())
+			execThread.start();
+		if (!timerThread.isAlive())
+			timerThread.start();
 
 		// 计算延迟时间
 		long delay = future.task.delayOrIntervalMillis() < tick ? tick : future.task.delayOrIntervalMillis();
@@ -367,24 +379,18 @@ public class HashWheelTimer implements Timer {
 		}
 	}
 
-	/** 
-	 * (non-Javadoc)
-	 *
-	 * @see com.asme.adserver.util.Timer#startup()
-	 */
 	public void startup() {
-		if (stoped) throw new IllegalStateException("计时器停止后不能再启动");
-		if (!execThread.isAlive()) execThread.start();
-		if (!timerThread.isAlive()) timerThread.start();
+		if (stoped)
+			throw new IllegalStateException("计时器停止后不能再启动");
+		if (!execThread.isAlive())
+			execThread.start();
+		if (!timerThread.isAlive())
+			timerThread.start();
 	}
 
-	/** 
-	 * (non-Javadoc)
-	 *
-	 * @see com.asme.adserver.util.Timer#shutdown()
-	 */
 	public void shutdown() {
-		if (stoped) return;
+		if (stoped)
+			return;
 
 		stoped = true;
 		timerThread.interrupt();
@@ -397,28 +403,25 @@ public class HashWheelTimer implements Timer {
 		}
 	}
 
-	/** 
-	 * (non-Javadoc)
-	 *
-	 * @see com.asme.adserver.util.Timer#timing(com.asme.adserver.util.TimerTask)
-	 */
 	public TimerFuture timing(TimerTask task) {
 
-		if (stoped) throw new IllegalStateException("计时器已停止");
+		if (stoped)
+			throw new IllegalStateException("计时器已停止");
 
 		HashWheelTimerFuture future = new HashWheelTimerFuture(task);
 		scheduleTimerFuture(future);
 		return future;
 	}
 
-    /**
-     * 规范化wheel的size
-     * @param ticksPerWheel
-     * @return
-     */
+	/**
+	 * 规范化wheel的size
+	 * 
+	 * @param ticksPerWheel
+	 */
 	private static int normalizeTicksPerWheel(int ticksPerWheel) {
 		int nTicks = 1;
-		for (nTicks <<= 1; nTicks < ticksPerWheel; nTicks <<= 1);
+		for (nTicks <<= 1; nTicks < ticksPerWheel; nTicks <<= 1)
+			;
 		return nTicks;
 	}
 }

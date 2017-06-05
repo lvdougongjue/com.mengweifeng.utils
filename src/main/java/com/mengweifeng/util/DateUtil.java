@@ -211,7 +211,7 @@ public class DateUtil {
 	/**
 	 * 获取当前时间戳的秒
 	 * 
-	 * @return
+	 * @return 当前时间戳的秒
 	 */
 	public static int getSecond() {
 		return second;
@@ -229,7 +229,7 @@ public class DateUtil {
 	/**
 	 * 获取当天剩余的秒数
 	 * 
-	 * @return
+	 * @return 当天剩余的秒数
 	 */
 	public static int getDayLeftSeconds() {
 		return dayLeftSeconds;
@@ -264,7 +264,7 @@ public class DateUtil {
 	 * 获取时分秒时间字符串
 	 * 
 	 * @param date
-	 * @return
+	 * @return HH:mm:ss
 	 */
 	public static String getHhMsSs(Date date) {
 		if (null == date) {
@@ -279,7 +279,6 @@ public class DateUtil {
 	 * 将日期字符串转为int
 	 * 
 	 * @param dateStr
-	 * @return
 	 */
 	public static int getDateInt(String dateStr) {
 		return Integer.parseInt(dateStr);
@@ -289,7 +288,6 @@ public class DateUtil {
 	 * 将日期转为int
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static int getDateInt(Date date) {
 		String dateStr = getDateStr(date);
@@ -301,7 +299,6 @@ public class DateUtil {
 	 * 
 	 * @param dateStr1
 	 * @param dateStr2
-	 * @return
 	 */
 	public static int getDiffDays(String dateStr1, String dateStr2) {
 		Date date1 = getDate(dateStr1);
@@ -315,7 +312,6 @@ public class DateUtil {
 	 * 
 	 * @param date1
 	 * @param date2
-	 * @return
 	 */
 	public static int getDiffDays(Date date1, Date date2) {
 		if (date1 == null || date2 == null) {
@@ -328,10 +324,9 @@ public class DateUtil {
 	}
 
 	/**
-	 * 时间字符串转为事件对象
+	 * 时间字符串转为时间对象
 	 * 
 	 * @param dateStr
-	 * @return
 	 */
 	public static Date getDate(String dateStr) {
 		SimpleDateFormat sdf = threadLocal.get();
@@ -348,7 +343,6 @@ public class DateUtil {
 	 * 时间对象转为时间字符串
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static String getDateStr(Date date) {
 		SimpleDateFormat sdf = threadLocal.get();
@@ -359,7 +353,6 @@ public class DateUtil {
 	 * 将date增加或减少一定天数
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getNextDate(Date date, int days) {
 		Calendar calendar = Calendar.getInstance();
@@ -372,7 +365,6 @@ public class DateUtil {
 	 * 获取日期所在月份的最后一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getMonthLastDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -386,7 +378,6 @@ public class DateUtil {
 	 * 获取日期所在月份的第一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getMonthFirstDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -399,7 +390,6 @@ public class DateUtil {
 	 * 获取日期所在周的周一
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getMonday(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -412,7 +402,6 @@ public class DateUtil {
 	 * 获取日期所在周的周日
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getSunday(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -427,7 +416,6 @@ public class DateUtil {
 	 * 日期类一周开始的日期是周日
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static int getDayOfWeek(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -439,7 +427,6 @@ public class DateUtil {
 	 * 是否是周一
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static boolean isMonday(Date date) {
 		int dayOfWeek = getDayOfWeek(date);
@@ -450,7 +437,6 @@ public class DateUtil {
 	 * 是否是周日
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static boolean isSunday(Date date) {
 		int dayOfWeek = getDayOfWeek(date);
@@ -461,7 +447,6 @@ public class DateUtil {
 	 * 获取是本月的第几天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static int getDayOfMonth(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -473,7 +458,6 @@ public class DateUtil {
 	 * 获取是本年的第几天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static int getDayOfYear(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -485,7 +469,6 @@ public class DateUtil {
 	 * 获取上个月的第一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getPreviousMonthFirstDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -500,7 +483,6 @@ public class DateUtil {
 	 * 获取上个月的最后一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static Date getPreviousMonthLastDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -517,7 +499,6 @@ public class DateUtil {
 	 * 月份从0开始， 0表示一月，11表示十二月
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static int getMonth(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -529,7 +510,6 @@ public class DateUtil {
 	 * 判断是否是某个月的第一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static boolean isMonthFirstDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -542,7 +522,6 @@ public class DateUtil {
 	 * 判断是否是某个月的最后一天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static boolean isMonthLastDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -556,7 +535,6 @@ public class DateUtil {
 	 * 是否是今天
 	 * 
 	 * @param date
-	 * @return
 	 */
 	public static boolean isToday(Date date) {
 		Calendar calendar = Calendar.getInstance();
@@ -573,7 +551,7 @@ public class DateUtil {
 	/**
 	 * 返回当天的数字格式
 	 * 
-	 * @return
+	 * @return yyyyMMdd
 	 */
 	public static Integer getTodayInt() {
 		return yyyyMMdd;
@@ -582,7 +560,6 @@ public class DateUtil {
 	/**
 	 * 获取当天0时0分0秒的时间戳
 	 * 
-	 * @return
 	 */
 	public static Date getToday() {
 		Calendar calendar = Calendar.getInstance();
@@ -596,7 +573,6 @@ public class DateUtil {
 	/**
 	 * 得到时
 	 * 
-	 * @return
 	 */
 	public static int getHourByDay() {
 		return hour;
@@ -605,7 +581,6 @@ public class DateUtil {
 	/**
 	 * 获取星期几
 	 * 
-	 * @return
 	 */
 	public static int getWeekDayInt() {
 		return week + 1;
@@ -645,7 +620,6 @@ public class DateUtil {
 	/**
 	 * 获取当天剩余多少秒 <br>
 	 * 
-	 * @return
 	 */
 	public static Integer getTodayRemainingSecond() {
 		return dayLeftSeconds;

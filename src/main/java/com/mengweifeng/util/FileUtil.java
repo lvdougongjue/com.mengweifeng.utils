@@ -24,7 +24,6 @@ public class FileUtil {
 	 * 从类路径获取文件
 	 * 
 	 * @param resource
-	 * @return
 	 */
 	public static File getFileByClassPath(String resource) {
 		URL url = FileUtil.class.getClassLoader().getResource(resource);
@@ -40,7 +39,6 @@ public class FileUtil {
 	 * 从类路径获取输入流
 	 * 
 	 * @param resource
-	 * @return
 	 */
 	public static InputStream getInputStreamByClassPath(String resource) {
 		return FileUtil.class.getClassLoader().getResourceAsStream(resource);
@@ -50,7 +48,6 @@ public class FileUtil {
 	 * 从网络中下载文件
 	 * 
 	 * @param fileUrl
-	 * @return
 	 */
 	public static File downloadFromUrl(String fileUrl) {
 		String tmpdir = System.getProperty("java.io.tmpdir");
