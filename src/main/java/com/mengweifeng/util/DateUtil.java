@@ -318,9 +318,9 @@ public class DateUtil {
 	/**
 	 * 获取两个时间相差的天数 比较第二个日期比第一个日期大多少天
 	 * 
-	 * @param dateStr1
+	 * @param date1
 	 *            日期字符串1
-	 * @param dateStr2
+	 * @param date2
 	 *            日期字符串2
 	 * @return 相差的天数
 	 */

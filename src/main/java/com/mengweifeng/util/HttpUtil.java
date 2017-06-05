@@ -49,8 +49,8 @@ public class HttpUtil {
 	 *            response
 	 * @param fileName
 	 *            下载的文件名
-	 * @param downLoadPath
-	 *            文件的路径
+	 * @param is
+	 *            文件流
 	 */
 	public static void downloadFile(HttpServletRequest request, HttpServletResponse response, String fileName, InputStream is) {
 		BufferedInputStream bis = null;
