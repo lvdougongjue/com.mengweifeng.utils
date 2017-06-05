@@ -14,7 +14,8 @@ public class StringUtils {
 	 * 判断输入字符串是否为空
 	 * 
 	 * @param s
-	 * @return
+	 *            待判断的字符串
+	 * @return 是否为空
 	 */
 	public final static boolean isEmpty(String s) {
 		if (s == null || s.length() == 0) {
@@ -27,7 +28,8 @@ public class StringUtils {
 	 * 判断输入字符串是否不为空
 	 *
 	 * @param s
-	 * @return
+	 *            待判断的字符串
+	 * @return 是否不为空
 	 */
 	public final static boolean isNotEmpty(String s) {
 		if (s == null || s.length() == 0) {

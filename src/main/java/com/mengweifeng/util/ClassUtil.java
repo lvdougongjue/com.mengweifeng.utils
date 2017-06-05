@@ -27,7 +27,7 @@ public class ClassUtil {
 	 *            目标类定义
 	 * @param recursion
 	 *            是否递归获取父类的的属性
-	 * @return
+	 * @return 属性集合
 	 */
 	public static Map<String, Field> getDeclaredFieldsMap(Class<?> clazz, Boolean recursion) {
 		Map<String, Field> fieldsMap = new HashMap<String, Field>();
@@ -55,7 +55,7 @@ public class ClassUtil {
 	 * 
 	 * @param clazz
 	 *            目标类定义
-	 * @return
+	 * @return 属性数组
 	 */
 	public static Field[] getDeclaredFields(Class<?> clazz) {
 		return getDeclaredFields(clazz, false);
@@ -68,7 +68,7 @@ public class ClassUtil {
 	 *            目标类定义
 	 * @param recursion
 	 *            是否递归获取父类的的属性
-	 * @return
+	 * @return 属性数组
 	 */
 	public static Field[] getDeclaredFields(Class<?> clazz, Boolean recursion) {
 		if (clazz == null) {
@@ -90,7 +90,6 @@ public class ClassUtil {
 	 * 获取类定义的命名(小驼峰式)
 	 * 
 	 * @param clazz
-	 * @return
 	 */
 	public static String getHumpName(Class<?> clazz) {
 		String className = clazz.getName();
@@ -142,7 +141,7 @@ public class ClassUtil {
 	 *            注解
 	 * @param packageName
 	 *            指定包路径，如果为空，则获取注解所在的包路径
-	 * @return
+	 * @return	类集合
 	 */
 	public static List<Class<?>> getAllClassByAnnotation(Class<? extends Annotation> annotationClass, String packageName) {
 		List<Class<?>> returnClassList = new ArrayList<Class<?>>();

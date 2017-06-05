@@ -24,7 +24,8 @@ public class FileUtil {
 	 * 从类路径获取文件
 	 * 
 	 * @param resource
-	 * @return
+	 *            路径
+	 * @return 文件 可能为null
 	 */
 	public static File getFileByClassPath(String resource) {
 		URL url = FileUtil.class.getClassLoader().getResource(resource);
@@ -40,7 +41,8 @@ public class FileUtil {
 	 * 从类路径获取输入流
 	 * 
 	 * @param resource
-	 * @return
+	 *            类路径
+	 * @return 输入流 可能为null
 	 */
 	public static InputStream getInputStreamByClassPath(String resource) {
 		return FileUtil.class.getClassLoader().getResourceAsStream(resource);
@@ -50,7 +52,8 @@ public class FileUtil {
 	 * 从网络中下载文件
 	 * 
 	 * @param fileUrl
-	 * @return
+	 *            文件url地址
+	 * @return 文件对象 可能为null
 	 */
 	public static File downloadFromUrl(String fileUrl) {
 		String tmpdir = System.getProperty("java.io.tmpdir");
@@ -110,6 +113,13 @@ public class FileUtil {
 		return fileSizeString;
 	}
 
+	/**
+	 * 获取扩展名
+	 * 
+	 * @param fileName
+	 *            文件名
+	 * @return 扩展名
+	 */
 	public static String getExtendName(String fileName) {
 		int l = fileName.lastIndexOf(".");
 		if (l == -1) {

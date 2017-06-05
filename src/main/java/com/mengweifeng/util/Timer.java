@@ -3,7 +3,7 @@ package com.mengweifeng.util;
 /**
  * @author ASME
  *
- * 2011-7-25
+ *         2011-7-25
  */
 public interface Timer {
 
@@ -21,7 +21,8 @@ public interface Timer {
 	 * 添加一个计时任务
 	 * 
 	 * @param task
-	 * @return
+	 *            计时任务
+	 * @return @see TimerFuture
 	 */
 	public TimerFuture timing(TimerTask task);
 
