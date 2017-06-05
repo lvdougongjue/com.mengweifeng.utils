@@ -173,7 +173,7 @@ public class HttpUtil {
 	 * 
 	 * @param request
 	 *            request
-	 * @return cookie集合
+	 * @return cookie集合(可能为空)
 	 */
 	public static Map<String, Cookie> getCookieMap(HttpServletRequest request) {
 		Map<String, Cookie> cookieMap = new HashMap<String, Cookie>();

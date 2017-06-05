@@ -90,6 +90,8 @@ public class ClassUtil {
 	 * 获取类定义的命名(小驼峰式)
 	 * 
 	 * @param clazz
+	 *            class对象
+	 * @return 类定义的命名(小驼峰式)
 	 */
 	public static String getHumpName(Class<?> clazz) {
 		String className = clazz.getName();
@@ -101,6 +103,8 @@ public class ClassUtil {
 	/**
 	 * 获取指定包下某个接口的所有实现类
 	 * 
+	 * @param <T>
+	 *            泛型
 	 * @param c
 	 *            接口定义
 	 * @param packageName
@@ -141,7 +145,7 @@ public class ClassUtil {
 	 *            注解
 	 * @param packageName
 	 *            指定包路径，如果为空，则获取注解所在的包路径
-	 * @return	类集合
+	 * @return 类集合
 	 */
 	public static List<Class<?>> getAllClassByAnnotation(Class<? extends Annotation> annotationClass, String packageName) {
 		List<Class<?>> returnClassList = new ArrayList<Class<?>>();

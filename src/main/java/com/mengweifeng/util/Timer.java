@@ -22,7 +22,7 @@ public interface Timer {
 	 * 
 	 * @param task
 	 *            计时任务
-	 * @return @see TimerFuture
+	 * @return TimerFuture
 	 */
 	public TimerFuture timing(TimerTask task);
 

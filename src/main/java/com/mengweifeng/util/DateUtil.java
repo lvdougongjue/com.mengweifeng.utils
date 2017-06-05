@@ -400,7 +400,7 @@ public class DateUtil {
 	 * 
 	 * @param date
 	 *            日期
-	 * @return日期所在月份的第一天
+	 * @return 日期所在月份的第一天
 	 */
 	public static Date getMonthFirstDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
