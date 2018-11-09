@@ -5,12 +5,7 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 
@@ -180,7 +175,7 @@ public class ClassUtil {
 	 * 
 	 * 根据包名获得该包以及子包下的所有类，不查找jar包中的
 	 * 
-	 * @param pageName
+	 * @param packageName
 	 *            包名
 	 * @return List<Class> 包下所有类
 	 */

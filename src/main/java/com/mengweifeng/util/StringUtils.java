@@ -3,7 +3,7 @@ package com.mengweifeng.util;
 /**
  * 字符串工具类
  * 
- * @author mwf
+ * @author lvdougongjue@163.com
  *
  */
 public class StringUtils {

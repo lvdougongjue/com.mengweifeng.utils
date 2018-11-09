@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 文件操作工具类
  * 
- * @author mwf
+ * @author lvdougongjue@163.com
  *
  */
 public class FileUtil {
