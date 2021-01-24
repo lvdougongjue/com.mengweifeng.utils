@@ -4,7 +4,7 @@
     <groupId>com.mengweifeng</groupId>
     <artifactId>util</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>utils</name>
     <description>com.mengweifeng.utils</description>
     <url>https://github.com/lvdougongjue/com.mengweifeng.utils</url>
@@ -58,6 +58,13 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.8</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.0.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
