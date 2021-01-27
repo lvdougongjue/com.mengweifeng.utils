@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 安全工具类，线程安全
  * 
- * @author mwf
+ * @author mengweifeng
  *
  */
 public final class SecureUtil {

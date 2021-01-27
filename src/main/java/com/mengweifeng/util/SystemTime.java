@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 系统时间工具类<br>
  * 该工具类用于替代System.currentTimeMillis()方法，提高性能
- * @author lvdougongjue@163.com
+ * @author MengWeiFeng
  */
 public final class SystemTime {
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");

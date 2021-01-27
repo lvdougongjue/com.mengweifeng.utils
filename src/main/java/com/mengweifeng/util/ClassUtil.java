@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author mwf
+ * @author MengWeiFeng
  */
+
 public class ClassUtil {
 
     /**
@@ -80,7 +81,7 @@ public class ClassUtil {
 
     /**
      * 获取类定义的命名(小驼峰式)
-     * String ---> string
+     * java.lang.String ---> java.lang.string
      *
      * @param clazz class对象
      * @return 类定义的命名(小驼峰式)
@@ -94,10 +95,11 @@ public class ClassUtil {
 
     /**
      * 查找同时满足下面三种情况的类
-     * @param interfaceClass    接口类
-     * @param superClass        父类
-     * @param annotationClass   类注解
-     * @param basePackageName   基础包路径（递归查找）
+     *
+     * @param interfaceClass  接口类
+     * @param superClass      父类
+     * @param annotationClass 类注解
+     * @param basePackageName 基础包路径（递归查找）
      * @return
      */
     public static List<Class<?>> findClasses(Class<?> interfaceClass, Class<?> superClass, Class<? extends Annotation> annotationClass, String basePackageName) {

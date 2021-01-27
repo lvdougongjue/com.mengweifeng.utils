@@ -3,7 +3,7 @@ package com.mengweifeng.util;
 /**
  * 自定义的base64编码
  *
- * @author lvdougongjue@163.com
+ * @author MengWeiFeng
  */
 public class LikeBase64 {
 

@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 /**
  * 文件操作工具类
  * 
- * @author lvdougongjue@163.com
+ * @author MengWeiFeng
  *
  */
 public class FileUtil {

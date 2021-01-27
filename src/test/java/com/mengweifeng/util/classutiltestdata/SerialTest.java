@@ -1,4 +1,4 @@
-package com.mengweifeng.util.data;
+package com.mengweifeng.util.classutiltestdata;
 
 import java.io.Serializable;
 
